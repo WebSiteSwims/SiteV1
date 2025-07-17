@@ -1,0 +1,274 @@
+/* ==================== BASE & TAILWIND ==================== */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==================== ROOT VARIABLES ==================== */
+:root {
+  --color-text: #0f172a;
+  --color-background: #ffffff;
+  --color-primary: #ff7300;
+  --color-secondary: #f8e2ad;
+  --color-accent: #fb7403;
+}
+
+/* ==================== BASE STYLES ==================== */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    @apply text-slate-900;
+  }
+  body {
+    /* background-blend-mode: overlay; */
+    /* color: #0f172a; */
+    /* font-family: 'CO Text Regular', 'Arial', sans-serif; */
+    /* min-height: 100vh; */
+    /* overflow-x: hidden; */
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold leading-tight;
+  }
+  h1 { @apply text-4xl sm:text-5xl md:text-6xl; }
+  h2 { @apply text-3xl sm:text-4xl; }
+  h3 { @apply text-2xl sm:text-3xl; }
+  p { @apply leading-relaxed; }
+}
+
+
+/* ==================== FONTS ==================== */
+@font-face {
+  font-family: 'CO HEADLINE BOLD';
+  src: url('/src/font/CO HEADLINE BOLD.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'CO HEADLINE LIGHT';
+  src: url('/src/font/CO HEADLINE LIGHT.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family:  'CO HEADLINE REGULAR';
+  src: url('/src/font/CO HEADLINE REGULAR.otf')  format('opentype');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'CO Text Regular';
+  src: url('/src/font/CO TEXT REGULAR.OTF') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'CO Text Bold';
+  src: url('/src/font/CO TEXT BOLD.OTF') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'CO Text Light';
+  src: url('/src/font/CO TEXT LIGHT.OTF') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'MADE Black Outline';
+  src: url('/src/font/MADE TOMMY SOFT BLACK OUTLINE PERSONAL USE.OTF') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'MADE Tommy Black';
+  src: url('/src/font/MADE TOMMY SOFT BLACK PERSONAL USE.OTF') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'MADE Tommy Soft';
+  src: url('/src/font/MADE TOMMY SOFT BOLD OUTLINE PERSONAL USE.OTF') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'MADE Tommy Bold';
+  src: url('/src/font/MADE TOMMY SOFT BOLD PERSONAL USE.OTF') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'MADE Tommy Extrabold Outline';
+  src: url('/src/font/MADE TOMMY SOFT EXTRABOLD OUTLINE PERSONAL USE.OTF') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'MADE Tommy Extrabold';
+  src: url('/src/font/MADE TOMMY SOFT EXTRABOLD PERSONAL USE.OTF') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'MADE Tommy Light Outline';
+  src: url('/src/font/MADE TOMMY SOFT LIGHT OUTLINE PERSONAL USE.OTF') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'MADE Tommy Light';
+  src: url('/src/font/MADE TOMMY SOFT LIGHT PERSONAL USE.OTF') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'MADE Tommy Medium Outline';
+  src: url('/src/font/MADE TOMMY SOFT MEDIUM OUTLINE PERSONAL USE.OTF') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'MADE Tommy Medium';
+  src: url('/src/font/MADE TOMMY SOFT MEDIUM PERSONAL USE.OTF') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'MADE Tommy Regular Outline';
+  src: url('/src/font/MADE TOMMY SOFT REGULAR OUTLINE PERSONAL USE.OTF') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'MADE Tommy Regular';
+  src: url('/src/font/MADE TOMMY SOFT REGULAR PERSONAL USE.OTF') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'MADE Tommy Thin Outline';
+  src: url('/src/font/MADE TOMMY SOFT THIN OUTLINE PERSONAL USE.OTF') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'MADE Tommy Thin';
+  src: url('/src/font/MADE TOMMY SOFT THIN PERSONAL USE.OTF') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+/* ==================== FOOTER ==================== */
+footer {
+  overflow: hidden;
+}
+
+/* ==================== HEADER ==================== */
+
+
+
+/* ==================== COMPONENTS ==================== */
+@layer components {
+  .container-custom {
+    @apply container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl;
+  }
+  .btn { @apply inline-flex items-center justify-center rounded-full py-2 px-6 font-medium transition-all duration-300; }
+  .btn-primary { @apply bg-accent-500 text-white hover:bg-accent-600 focus:ring-2 focus:ring-accent-500 focus:ring-offset-2; }
+  .btn-secondary { @apply bg-secondary-500 text-white hover:bg-secondary-600 focus:ring-2 focus:ring-secondary-500 focus:ring-offset-2; }
+  .btn-outline { @apply border-2 border-accent-500 text-accent-500 hover:bg-accent-50 focus:ring-2 focus:ring-accent-500 focus:ring-offset-2; }
+  .card { @apply bg-white/90 backdrop-blur-sm rounded-xl shadow-md overflow-hidden transition-all duration-300; }
+  .section { @apply py-16 md:py-24; }
+  .section-title { @apply text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-white; }
+}
+
+/* ==================== UTILITIES ==================== */
+.text-gradient { @apply bg-clip-text text-transparent bg-gradient-to-r from-accent-500 to-secondary-500; }
+.parallax { will-change: transform; }
+
+/* ==================== SCROLLBAR ==================== */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ==================== SWIMSTOOLS SECTION ==================== */
+.swims-tools-bg {
+  background: #FFE2BE;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 0;
+  position: relative;
+}
+
+.swims-tools-title-left {
+  position: absolute;
+  top: 32px;
+  left: 48px;
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: #333;
+  letter-spacing: 1px;
+  text-align: left;
+  margin: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.swims-tools-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.dmds-big {
+  font-size: 14rem;
+  font-weight: 900;
+  color: #333;
+  margin-bottom: 18px;
+  letter-spacing: 2px;
+  text-shadow: none;
+}
+
+.dmds-text {
+  font-size: 1.18rem;
+  color: #666; 
+  text-align: center;
+  margin-bottom: 32px;
+  max-width: 600px; 
+  line-height: 1.5;
+}
+
+.dmds-buttons {
+  display: flex;
+  gap: 32px;
+  margin-top: 8px;
+}
+
+.btn-gradient-wrapper {
+  display: inline-flex;
+  padding: 2.5px; /* même valeur que border épaisseur */
+  border-radius: 999px;
+  background: linear-gradient(90deg, #FF9900 0%, #fff 100%);
+  margin: 0 8px;
+}
+
+.dmds-btn {
+  background: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 8px 24px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #FF9900;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  box-shadow: none;
+  outline: none;
+}
+
+.dmds-btn:hover {
+  background: linear-gradient(90deg, #FF9900 0%, #fff 100%);
+  color: #fff;
+  box-shadow: 0 4px 16px #ff990080;
+}
+/* ==================== FIN SWIMSTOOLS SECTION ==================== */
