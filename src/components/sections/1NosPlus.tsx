@@ -1,5 +1,4 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
 import fuseeImg from '../images/FUSEE-18.png';
 
 const plusData = [
@@ -45,16 +44,15 @@ const NosPlus: React.FC = () => {
   }, [current]);
 
   return (
-    <section className="w-full py-16 px-0 bg-white overflow-x-hidden">
-      {/* Titre + logo en haut à gauche */}
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="flex items-center mb-8">
-          <img src={fuseeImg} alt="" className="w-7 h-7 mr-2" />
+    <section className="w-full py-16 md:py-20 lg:py-24 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Titre standardisé en haut à gauche */}
+        <div className="flex items-center mb-8 md:mb-12">
+          <img src={fuseeImg} alt="" className="w-6 h-6 md:w-7 md:h-7 object-contain mr-2" />
           <span
-            className="font-extrabold text-xl sm:text-2xl"
+            className="text-lg md:text-xl font-bold text-zinc-800"
             style={{
               fontFamily: "'CO HEADLINE BOLD', Arial, sans-serif",
-              color: "#222",
             }}
           >
             Nos plus

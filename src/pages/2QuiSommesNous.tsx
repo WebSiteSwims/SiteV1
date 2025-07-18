@@ -24,7 +24,6 @@ const HomePage: React.FC = () => {
         <NosValeurs />
         <ChiffresCles />
         <TravaillonsEnsemble />
-        <Contact />
       </main>
       <Footer />
     </>
