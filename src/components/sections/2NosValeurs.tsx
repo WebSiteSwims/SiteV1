@@ -28,75 +28,70 @@ const valeurs = [
 const NosValeurs: React.FC = () => {
   return (
     <section className="w-full bg-white py-12 px-0">
-      {/* Bandeau titre */}
-      <div className="flex items-center gap-2 px-8 pt-6 pb-2">
-        <img src={iconeValeurs} alt="" className="w-6 h-6" />
-        <span
-          className="font-bold text-lg"
-          style={{ color: "#FF7900", fontFamily: "'CO Text Bold', Arial, sans-serif" }}
-        >
-          Nos valeurs
-        </span>
-      </div>
-      {/* Titre principal */}
-      <div className="px-8 pb-8">
-        <h2
-          className="font-black leading-tight"
-          style={{
-            fontSize: 42,
-            fontFamily: "'CO HEADLINE BOLD', Arial, sans-serif",
-            maxWidth: 1100,
-            lineHeight: 1.1,
-          }}
-        >
-          ON MIXE L’EXPERTISE D’INGÉNIEUR<br />
-          AVEC L’ÉNERGIE <span style={{ color: "#FF7900" }}>STARTUP</span>
-        </h2>
-      </div>
-      {/* Valeurs */}
-      <div className="flex flex-col md:grid md:grid-cols-3 gap-8 px-0 pb-12 w-full max-w-none mx-0">
+      {/* Bandeau titre + Titre principal + Valeurs dans le même container */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center gap-2 pt-6 pb-2">
+          <img src={iconeValeurs} alt="" className="w-6 h-6" />
+          <span
+            className="font-bold text-lg"
+            style={{ color: "#FF7900", fontFamily: "'CO Text Bold', Arial, sans-serif" }}
+          >
+            Nos valeurs
+          </span>
+        </div>
+        <div className="mb-12 md:mb-16">
+          <h2
+            className="font-black leading-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl"
+            style={{
+              fontFamily: "'CO HEADLINE BOLD', Arial, sans-serif",
+              lineHeight: 1.05,
+              letterSpacing: '-0.02em',
+              color: '#111',
+            }}
+          >
+            ON MIXE L’EXPERTISE D’INGÉNIEUR<br />
+            AVEC L’ÉNERGIE <span style={{ color: "#FF7900" }}>STARTUP</span>
+          </h2>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
         {valeurs.map((valeur) => (
           <div
             key={valeur.title}
-            className="relative min-w-0 h-[520px] rounded-3xl overflow-hidden flex flex-col group transition-all duration-300 cursor-pointer"
+            className="relative h-80 md:h-96 lg:h-[500px] rounded-2xl md:rounded-3xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl"
           >
             <img
               src={valeur.img}
               alt={valeur.alt}
-              className="absolute inset-0 w-full h-full object-cover transition-all duration-300 group-hover:scale-105 group-hover:opacity-40"
+              className="absolute inset-0 w-full h-full object-cover transition-all duration-300 group-hover:scale-105"
             />
-            {/* Overlay orange + texte blanc au hover */}
-            <div
-              className="absolute inset-0 flex flex-col justify-end items-start p-10 transition-all duration-300
-                bg-gradient-to-t from-black/60 to-transparent
-                group-hover:bg-[#FF7300] group-hover:bg-opacity-100"
-              style={{
-                minHeight: 180,
-                background: "linear-gradient(0deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.0) 60%)",
-              }}
-            >
-              <span
-                className="font-bold text-white text-3xl md:text-4xl mb-4 transition-all duration-300"
+            {/* Overlay avec dégradé */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent group-hover:from-[#ff7300]/90 group-hover:via-[#ff7300]/60 group-hover:to-[#ff7300]/30 transition-all duration-300"></div>
+            
+            {/* Contenu */}
+            <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+              <h3
+                className="text-white font-bold text-2xl md:text-3xl lg:text-4xl mb-4 transition-all duration-300"
                 style={{
                   fontFamily: "'CO HEADLINE BOLD', Arial, sans-serif",
-                  textShadow: "0 2px 16px rgba(0,0,0,0.35)",
+                  textShadow: "0 2px 16px rgba(0,0,0,0.5)",
                 }}
               >
                 {valeur.title}
-              </span>
-              <span
-                className="opacity-0 group-hover:opacity-100 text-white text-lg md:text-xl font-semibold transition-all duration-300"
+              </h3>
+              <p
+                className="text-white text-base md:text-lg lg:text-xl opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0"
                 style={{
-                  fontFamily: "'CO Text Bold', Arial, sans-serif",
-                  maxWidth: 350,
-                  transition: "opacity 0.3s",
+                  fontFamily: "'CO HEADLINE BOLD', Arial, sans-serif",
+                  lineHeight: 1.4,
+                  textShadow: "0 1px 8px rgba(0,0,0,0.5)",
                 }}
               >
                 {valeur.text}
-              </span>
+              </p>
             </div>
           </div>
         ))}
+        </div>
       </div>
     </section>
   );

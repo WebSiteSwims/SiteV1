@@ -4,14 +4,16 @@ import fuseeImg from '../images/Integrateur_AVEVA.png';
 
 const NotreHistoire: React.FC = () => {
   return (
-    <section className="w-full bg-[#ff7300] pb-0 relative overflow-hidden">
-      {/* Bandeau orange avec titre et texte aligné à droite */}
-      <div className="w-full flex flex-col items-end pt-6 pb-12 px-4">
-        <div className="flex items-center gap-2 mb-4 self-start max-w-5xl w-full mx-auto px-4 sm:px-8 md:px-16">
-          <img src={feuilleIcon} alt="" className="w-6 h-4" />
+    <section className="w-full bg-[#ff7300] pb-0">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Titre standardisé en haut à gauche */}
+        <div className="flex items-center mb-8 md:mb-12 pt-8">
+          <img src={feuilleIcon} alt="" className="w-6 h-6 md:w-7 md:h-7 object-contain mr-2" />
           <span
-            className="text-white font-bold text-2xl"
-            style={{ fontFamily: "'CO Text Bold', Arial, sans-serif" }}
+            className="text-lg md:text-xl font-bold text-white"
+            style={{
+              fontFamily: "'CO HEADLINE BOLD', Arial, sans-serif",
+            }}
           >
             Notre histoire
           </span>
@@ -63,9 +65,9 @@ const NotreHistoire: React.FC = () => {
         style={{
           borderTopLeftRadius: 48,
           borderTopRightRadius: 48,
-          marginTop: '-200px', // agrandit la zone blanche
-          paddingTop: '260px', // augmente l'espace au-dessus du texte
-          minHeight: 650,
+          marginTop: '-200px',
+          paddingTop: '260px',
+          minHeight: 'calc(100vh - 200px)', // le blanc recouvre tout le bas
         }}
       >
         <div className="max-w-6xl w-full mx-auto flex flex-col items-center">
