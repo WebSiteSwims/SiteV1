@@ -1,8 +1,8 @@
 import React from "react";
 import iconeValeurs from "../images/FUSEE-18.png";
-import collaborationImg from "../images/Assistance_technique.png";
-import excellenceImg from "../images/Integrateur_AVEVA.png";
-import innovationImg from "../images/FUSEE-Home.png"; // Remplace par ton image pour la 3e carte
+import collaborationImg from "../images/Collaboration.png";
+import excellenceImg from "../images/ExcellenceTechnique.png";
+import innovationImg from "../images/Confiance.png";
 
 const valeurs = [
   {
@@ -19,8 +19,8 @@ const valeurs = [
   },
   {
     img: innovationImg,
-    alt: "Innovation",
-    title: "Innovation",
+    alt: "Confiance",
+    title: "Confiance",
     text: "On casse les codes et on innove pour propulser vos projets.",
   },
 ];
@@ -33,8 +33,8 @@ const NosValeurs: React.FC = () => {
         <div className="flex items-center gap-2 pt-6 pb-2">
           <img src={iconeValeurs} alt="" className="w-6 h-6" />
           <span
-            className="font-bold text-lg"
-            style={{ color: "#FF7900", fontFamily: "'CO Text Bold', Arial, sans-serif" }}
+            className="font-bold text-2xl sm:text-3xl md:text-4xl"
+            style={{ fontFamily: "'CO Text Bold', Arial, sans-serif" }}
           >
             Nos valeurs
           </span>

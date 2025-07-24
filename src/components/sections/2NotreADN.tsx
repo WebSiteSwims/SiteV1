@@ -10,22 +10,24 @@ const NotreADN: React.FC = () => {
         <div className="flex items-center gap-2 pt-6 pb-2">
           <img src={feuilleIcon} alt="" className="w-6 h-6" />
           <span
-            className="font-bold text-lg"
-            style={{ color: "#FF7300", fontFamily: "'CO HEADLINE BOLD', Arial, sans-serif" }}
+            className="font-bold text-2xl sm:text-3xl md:text-4xl"
+            style={{ fontFamily: "'CO HEADLINE BOLD', Arial, sans-serif" }}
           >
             Notre ADN
           </span>
         </div>
         {/* Citation et texte alignés à gauche */}
         <div className="mb-12 md:mb-16">
-          <img
-            src={quoteIcon}
-            alt=""
-            className="w-10 h-10 mb-2"
-            style={{ objectFit: 'contain' }}
-          />
+          <div className="mt-8 mb-8">
+            <img
+              src={quoteIcon}
+              alt=""
+              className="w-25 h-20 mb-4"
+              style={{ objectFit: 'contain' }}
+            />
+          </div>
           <h2
-            className="font-black leading-tight text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl mb-6"
+            className="font-black leading-tight text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl mb-8"
             style={{
               fontFamily: "'CO HEADLINE LIGHT', Arial, sans-serif",
               lineHeight: 1.15,
