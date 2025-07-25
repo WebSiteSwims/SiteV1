@@ -1,8 +1,10 @@
 import React, { useRef } from "react";
 import iconeFlamme from "../images/FUSEE-18.png";
-import refImg1 from "../images/Integrateur_AVEVA.png";
-import refImg2 from "../images/Integrateur_AVEVA.png";
-import refImg3 from "../images/Integrateur_AVEVA.png";
+import refImg1 from "../images/Référence_intégrateuur_aveva_V2.png";
+import refImg2 from "../images/Référence_intégrateuur_aveva_V2.png";
+import refImg3 from "../images/Référence_intégrateuur_aveva_V2.png";
+import guillemets from "../images/guillemets orange-24.png";
+import fondCard from "../images/FONDGRAINAVEVAVIOLET.jpg";
 
 const references = [
   {
@@ -20,8 +22,8 @@ const references = [
     resultats: [
       "100 % des éléments migrés après corrections",
       "Plus de 4 900 objets traités",
-      "Aucune perte d’attributs",
-      "Un outil robuste et réutilisable pour d’autres projets E3D"
+      "Aucune perte d'attributs",
+      "Un outil robuste et réutilisable pour d'autres projets E3D"
     ]
   },
   {
@@ -30,9 +32,9 @@ const references = [
     image: refImg2,
     besoin: "Automatiser la génération des livrables AVEVA pour réduire les délais et fiabiliser les données transmises aux équipes terrain.",
     actions: [
-      "Développé des scripts d’automatisation sur-mesure",
-      "Intégré les outils dans l’environnement client",
-      "Formé les équipes à l’utilisation des nouveaux workflows"
+      "Développé des scripts d'automatisation sur-mesure",
+      "Intégré les outils dans l'environnement client",
+      "Formé les équipes à l'utilisation des nouveaux workflows"
     ],
     resultats: [
       "Livrables générés 3x plus rapidement",
@@ -47,7 +49,7 @@ const references = [
     besoin: "Sécuriser les accès aux environnements AVEVA et garantir la confidentialité des données sensibles.",
     actions: [
       "Audit des accès et des droits utilisateurs",
-      "Mise en place d’une gestion fine des droits",
+      "Mise en place d'une gestion fine des droits",
       "Déploiement de solutions de sauvegarde et de chiffrement"
     ],
     resultats: [
@@ -59,125 +61,230 @@ const references = [
 ];
 
 const Reference: React.FC = () => {
-  const sliderRef = useRef<HTMLDivElement>(null);
+  const [currentSlide, setCurrentSlide] = React.useState(0);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % references.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + references.length) % references.length);
+  };
 
   return (
-    <section className="w-full py-12 px-0 bg-transparent">
-      <div className="max-w-7xl mx-auto px-4">
-        {/* Slider */}
-        <div
-          ref={sliderRef}
-          className="flex gap-8 overflow-x-auto scrollbar-thin scrollbar-thumb-[#d1c4e9] scrollbar-track-transparent pb-6"
-          style={{ scrollSnapType: "x mandatory" }}
-        >
-          {references.map((ref, idx) => (
-            <div
-              key={ref.title}
-              className="min-w-[600px] max-w-[600px] bg-gradient-to-br from-[#7b2ff2] to-[#a18cd1] rounded-[32px] p-8 flex flex-col md:flex-row gap-8 shadow-xl scrollSnapAlign-start"
-              style={{
-                scrollSnapAlign: "start",
-                boxShadow: "0 8px 32px 0 rgba(80,40,120,0.10)",
-              }}
+    <section className="w-full bg-white pb-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Titre standardisé */}
+        <div className="flex items-center mb-8 md:mb-12 pt-8">
+          <img src={iconeFlamme} alt="" className="w-6 h-6 md:w-7 md:h-7 object-contain mr-2" />
+          <span
+            className="font-bold text-2xl sm:text-3xl md:text-4xl text-black"
+            style={{
+              fontFamily: "'CO HEADLINE BOLD', Arial, sans-serif",
+            }}
+          >
+            Références
+          </span>
+        </div>
+
+        {/* Carte unique centrée */}
+        <div className="flex justify-center mb-8">
+          <div
+            className="w-full max-w-5xl rounded-[20px] sm:rounded-[32px] p-4 sm:p-6 md:p-8 shadow-xl relative"
+            style={{
+              background: `url(${fondCard}) center center / cover no-repeat`,
+              boxShadow: "0 8px 32px 0 rgba(80,40,120,0.15)",
+              minHeight: "clamp(400px, 50vh, 600px)",
+            }}
+          >
+            {/* Navigation buttons */}
+            <button
+              onClick={prevSlide}
+              className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-white text-lg sm:text-xl transition-all duration-200"
             >
-              {/* Bloc gauche */}
-              <div className="flex-1 flex flex-col justify-between">
-                <div>
-                  <div className="flex items-center mb-4">
-                    <img src={iconeFlamme} alt="" className="w-7 h-7 mr-3" />
-                    <span
-                      className="text-2xl font-bold text-white"
-                      style={{
-                        fontFamily: "'CO HEADLINE BOLD', Arial, sans-serif",
-                      }}
-                    >
-                      Références
-                    </span>
-                  </div>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {ref.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="bg-white/30 text-white text-xs font-bold px-3 py-1 rounded-full"
-                        style={{ fontFamily: "'CO Text Bold', Arial, sans-serif" }}
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  <div
-                    className="text-white font-bold mb-4"
+              ←
+            </button>
+            <button
+              onClick={nextSlide}
+              className="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-white text-lg sm:text-xl transition-all duration-200"
+            >
+              →
+            </button>
+
+            {/* Header avec titre et tags */}
+            <div className="mb-4 sm:mb-6">
+              <h3
+                className="text-white font-bold mb-3 sm:mb-4"
+                style={{
+                  fontFamily: "'CO HEADLINE BOLD', Arial, sans-serif",
+                  fontSize: "clamp(1.2rem, 4vw, 2rem)",
+                  lineHeight: 1.2,
+                }}
+              >
+                {references[currentSlide].title}
+              </h3>
+              <div className="flex flex-wrap gap-1 sm:gap-2 mb-4 sm:mb-6">
+                {references[currentSlide].tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="px-2 py-1 sm:px-4 sm:py-2 bg-white/20 rounded-full text-white font-medium"
                     style={{
-                      fontFamily: "'CO HEADLINE BOLD', Arial, sans-serif",
-                      fontSize: "1.2rem",
+                      fontFamily: "'CO Text Bold', Arial, sans-serif",
+                      fontSize: "clamp(12px, 2vw, 14px)",
                     }}
                   >
-                    {ref.title}
-                  </div>
-                  <div className="mb-4">
-                    <div className="text-white font-bold mb-1" style={{ fontFamily: "'CO HEADLINE BOLD', Arial, sans-serif" }}>
-                      Besoin du client
-                    </div>
-                    <div className="text-white text-base" style={{ fontFamily: "'CO Text', Arial, sans-serif" }}>
-                      {ref.besoin}
-                    </div>
-                  </div>
-                  <div className="mb-4">
-                    <div className="text-white font-bold mb-1" style={{ fontFamily: "'CO HEADLINE BOLD', Arial, sans-serif" }}>
-                      Ce que nous avons fait
-                    </div>
-                    <ul className="list-disc pl-5 text-white text-base" style={{ fontFamily: "'CO Text', Arial, sans-serif" }}>
-                      {ref.actions.map((a, i) => (
-                        <li key={i}>{a}</li>
-                      ))}
-                    </ul>
-                  </div>
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Layout avec image à droite et contenu en 2 colonnes */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+              {/* Colonnes de contenu (2/3) */}
+              <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
+                {/* Colonne gauche */}
+                <div className="space-y-4 sm:space-y-6">
                   <div>
-                    <div className="text-white font-bold mb-1" style={{ fontFamily: "'CO HEADLINE BOLD', Arial, sans-serif" }}>
-                      Résultats et impacts
-                    </div>
-                    <ul className="list-disc pl-5 text-white text-base" style={{ fontFamily: "'CO Text', Arial, sans-serif" }}>
-                      {ref.resultats.map((r, i) => (
-                        <li key={i}>{r}</li>
+                    <h4
+                      className="text-white font-bold mb-2 sm:mb-3"
+                      style={{
+                        fontFamily: "'CO Text Bold', Arial, sans-serif",
+                        fontSize: "clamp(16px, 2.5vw, 18px)",
+                      }}
+                    >
+                      Besoin du client
+                    </h4>
+                    <p
+                      className="text-white/90"
+                      style={{
+                        fontFamily: "'CO Text', Arial, sans-serif",
+                        fontSize: "clamp(14px, 2vw, 15px)",
+                        lineHeight: 1.6,
+                      }}
+                    >
+                      {references[currentSlide].besoin}
+                    </p>
+                  </div>
+
+                  <div>
+                    <h4
+                      className="text-white font-bold mb-2 sm:mb-3"
+                      style={{
+                        fontFamily: "'CO Text Bold', Arial, sans-serif",
+                        fontSize: "clamp(16px, 2.5vw, 18px)",
+                      }}
+                    >
+                      Ce que nous avons fait
+                    </h4>
+                    <ul className="space-y-1 sm:space-y-2">
+                      {references[currentSlide].actions.map((action, i) => (
+                        <li
+                          key={i}
+                          className="text-white/90 flex items-start"
+                          style={{
+                            fontFamily: "'CO Text', Arial, sans-serif",
+                            fontSize: "clamp(13px, 2vw, 15px)",
+                            lineHeight: 1.5,
+                          }}
+                        >
+                          <span className="text-white mr-2 mt-1">•</span>
+                          <span>{action}</span>
+                        </li>
                       ))}
                     </ul>
                   </div>
                 </div>
+
+                {/* Colonne droite */}
+                <div className="mt-4 md:mt-0">
+                  <h4
+                    className="text-white font-bold mb-2 sm:mb-3"
+                    style={{
+                      fontFamily: "'CO Text Bold', Arial, sans-serif",
+                      fontSize: "clamp(16px, 2.5vw, 18px)",
+                    }}
+                  >
+                    Résultats et impacts
+                  </h4>
+                  <ul className="space-y-1 sm:space-y-2">
+                    {references[currentSlide].resultats.map((resultat, i) => (
+                      <li
+                        key={i}
+                        className="text-white/90 flex items-start"
+                        style={{
+                          fontFamily: "'CO Text', Arial, sans-serif",
+                          fontSize: "clamp(13px, 2vw, 15px)",
+                          lineHeight: 1.5,
+                        }}
+                      >
+                        <span className="text-white mr-2 mt-1">•</span>
+                        <span>{resultat}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
-              {/* Bloc droit */}
-              <div className="flex-1 flex items-center justify-center">
-                <img
-                  src={ref.image}
-                  alt={ref.title}
-                  className="w-full max-w-[320px] rounded-2xl object-cover"
-                  style={{ minHeight: 220, background: "#fff" }}
-                />
+
+              {/* Image à droite (1/3) */}
+              <div className="lg:col-span-1 flex items-center justify-center mt-4 lg:mt-0">
+                <div className="w-full max-w-xs sm:max-w-sm lg:max-w-none">
+                  <img
+                    src={references[currentSlide].image}
+                    alt={references[currentSlide].title}
+                    className="w-full h-auto object-contain rounded-lg shadow-lg"
+                    style={{
+                      maxHeight: "clamp(250px, 40vh, 500px)",
+                      minHeight: "clamp(200px, 30vh, 350px)",
+                    }}
+                  />
+                </div>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Dots indicateurs */}
+        <div className="flex justify-center mb-8 sm:mb-12 gap-2 sm:gap-3">
+          {references.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
+                index === currentSlide 
+                  ? 'bg-[#7b2ff2] scale-125' 
+                  : 'bg-[#e5e5f7] hover:bg-[#d1c4e9]'
+              }`}
+            />
           ))}
         </div>
-        {/* Dots */}
-        <div className="flex justify-center mt-6 gap-2">
-          <span className="w-4 h-2 rounded-full bg-[#7b2ff2] opacity-80 inline-block" />
-          <span className="w-4 h-2 rounded-full bg-[#e5e5f7] opacity-80 inline-block" />
-          <span className="w-4 h-2 rounded-full bg-[#e5e5f7] opacity-80 inline-block" />
-        </div>
-        {/* Bas */}
-        <div className="mt-16">
-          <h2
-            className="font-bold mb-2"
-            style={{
-              fontFamily: "'CO HEADLINE BOLD', Arial, sans-serif",
-              fontSize: "2.2rem",
-              lineHeight: 1.1,
-              color: "#111",
-            }}
-          >
-            AVEVA <span style={{ color: "#7b2ff2" }}>NOUS DIT TOUT</span><br />
-            NOTRE PARTENAIRE TECH
-          </h2>
-          <div className="text-4xl text-[#7b2ff2] mt-4 mb-8">❝❞</div>
-          <div className="text-right text-[#222] font-semibold" style={{ fontFamily: "'CO Text', Arial, sans-serif" }}>
-            Hamza
+
+        {/* Citation finale avec texte à gauche */}
+        <div className="text-left pb-12 sm:pb-16">
+          {/* Texte */}
+          <div className="mb-4 sm:mb-6">
+            <h2
+              className="font-bold mb-3 sm:mb-4"
+              style={{
+                fontFamily: "'CO HEADLINE BOLD', Arial, sans-serif",
+                fontSize: "clamp(1.8rem, 5vw, 3rem)",
+                lineHeight: 1.1,
+                color: "#111",
+                letterSpacing: "-0.02em",
+              }}
+            >
+              AVEVA <span style={{ color: "#7b2ff2" }}>NOUS DIT TOUT</span><br />
+              NOTRE PARTENAIRE TECH
+            </h2>
+
+            {/* Image des guillemets en dessous */}
+            <div className="flex justify-start">
+              <img
+                src={guillemets}
+                alt="Guillemets"
+                className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain"
+              />
+            </div>
           </div>
         </div>
       </div>

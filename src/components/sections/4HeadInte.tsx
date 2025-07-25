@@ -21,13 +21,13 @@ const HeadInte: React.FC = () => {
     <section
       id="headinte"
       ref={containerRef}
-      className="min-h-screen flex items-start justify-start relative overflow-hidden"
+      className="min-h-screen flex flex-col lg:flex-row items-start justify-start relative overflow-hidden"
       style={{
         background: `url(${bgImage}) center center / cover no-repeat`,
       }}
     >
       <motion.div
-        className="z-10 pt-32 pl-10 md:pt-60 md:pl-20"
+        className="z-10 pt-16 px-4 sm:pt-24 sm:px-6 md:pt-32 md:px-10 lg:pt-60 lg:pl-20 lg:pr-0 flex-1"
         style={{ opacity, y }}
       >
         <h1
@@ -35,7 +35,7 @@ const HeadInte: React.FC = () => {
           style={{
             fontFamily: "'CO HEADLINE LIGHT', Arial, sans-serif",
             fontWeight: 300,
-            fontSize: '4.5rem',
+            fontSize: "clamp(2.5rem, 6vw, 4.5rem)",
             lineHeight: 1.1,
           }}
         >
@@ -43,7 +43,7 @@ const HeadInte: React.FC = () => {
             style={{
               fontFamily: "'CO HEADLINE LIGHT'",
               fontWeight: 300,
-              fontSize: '9rem',
+              fontSize: "clamp(4rem, 12vw, 9rem)",
               lineHeight: 1.00,
               display: 'inline',
             }}
@@ -54,7 +54,7 @@ const HeadInte: React.FC = () => {
             style={{
               fontFamily: "'CO HEADLINE BOLD'",
               fontWeight: 700,
-              fontSize: '9rem',
+              fontSize: "clamp(4rem, 12vw, 9rem)",
               lineHeight: 1.00,
               display: 'inline',
             }}
@@ -64,7 +64,7 @@ const HeadInte: React.FC = () => {
         </h1>
       </motion.div>
       <motion.div
-        className="z-10 pt-32 pr-10 md:pt-60 md:pr-20 flex-1 flex flex-col justify-center items-start"
+        className="z-10 pt-8 px-4 sm:px-6 md:px-10 lg:pt-60 lg:pr-20 flex-1 flex flex-col justify-center items-start"
         style={{ opacity, y }}
       >
         <div
@@ -78,7 +78,7 @@ const HeadInte: React.FC = () => {
           <p
             style={{
               fontWeight: 700,
-              fontSize: 18,
+              fontSize: "clamp(16px, 2.5vw, 18px)",
               color: "#fff",
               fontFamily: "'CO Text Bold', Arial, sans-serif",
               marginBottom: 18,
@@ -90,7 +90,7 @@ const HeadInte: React.FC = () => {
           <p
             style={{
               fontWeight: 400,
-              fontSize: 17,
+              fontSize: "clamp(15px, 2.2vw, 17px)",
               color: "#fff",
               fontFamily: "'CO Text', Arial, sans-serif",
               lineHeight: 1.6,
@@ -101,10 +101,10 @@ const HeadInte: React.FC = () => {
             On connecte les outils, les données et les équipes pour transformer AVEVA en un système robuste, fluide et taillé pour vos objectifs industriels. Avec nous, AVEVA devient un terrain de jeu optimisé pour votre industrie.
           </p>
           <button
-            className="border border-white text-white font-bold rounded-full px-8 py-3 transition hover:bg-white hover:text-[#7b2ff2]"
+            className="border border-white text-white font-bold rounded-full px-6 py-2 sm:px-8 sm:py-3 transition hover:bg-white hover:text-[#7b2ff2]"
             style={{
               fontFamily: "'CO Text Bold', Arial, sans-serif",
-              fontSize: 16,
+              fontSize: "clamp(14px, 2vw, 16px)",
               background: "transparent",
               cursor: "pointer",
               border: "2px solid #fff",
