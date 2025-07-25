@@ -48,7 +48,7 @@ const Hero: React.FC = () => {
             style={{
               fontFamily: "'CO HEADLINE LIGHT'",
               fontWeight: 300,
-              fontSize: 'clamp(3rem, 8vw, 9rem)',
+              fontSize: 'clamp(4rem, 12vw, 9rem)',
               lineHeight: 1.00, 
               display: 'block',
             }}
@@ -59,7 +59,7 @@ const Hero: React.FC = () => {
             style={{
               fontFamily: "'CO HEADLINE BOLD'",
               fontWeight: 700,
-              fontSize: 'clamp(3rem, 8vw, 9rem)',
+              fontSize: 'clamp(4rem, 12vw, 9rem)',
               lineHeight: 1.00, 
               display: 'block',
             }}
@@ -72,13 +72,14 @@ const Hero: React.FC = () => {
       <img
         src={fuseeHome}
         alt="Fusée Home"
-        className="absolute bottom-[-310px] right-[-450px] w-[1400px] h-[1150px] object-contain z-10"
+        className="absolute bottom-[-310px] right-[-450px] object-contain z-10 hidden lg:block"
         style={{
           pointerEvents: 'none',
           userSelect: 'none',
           opacity: 1,
           transform: 'rotate(-12deg)',
-          maxWidth: '1400px',
+          width: 'clamp(800px, 80vw, 1400px)',
+          height: 'clamp(650px, 65vw, 1150px)',
         }}
       />
     </section>

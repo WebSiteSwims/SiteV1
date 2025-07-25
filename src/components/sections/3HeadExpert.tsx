@@ -35,7 +35,6 @@ const HeadExpert: React.FC = () => {
           style={{
             fontFamily: "'CO HEADLINE LIGHT', Arial, sans-serif",
             fontWeight: 300,
-            fontSize: '9rem',
             lineHeight: 1.1,
           }}
         >
@@ -43,7 +42,7 @@ const HeadExpert: React.FC = () => {
             style={{
               fontFamily: "'CO HEADLINE LIGHT'",
               fontWeight: 300,
-              fontSize: '9rem',
+              fontSize: 'clamp(4rem, 12vw, 9rem)',
               lineHeight: 1.00,
               display: 'inline',
             }}
@@ -54,7 +53,7 @@ const HeadExpert: React.FC = () => {
             style={{
               fontFamily: "'CO HEADLINE BOLD'",
               fontWeight: 700,
-              fontSize: '9rem',
+              fontSize: 'clamp(4rem, 12vw, 9rem)',
               lineHeight: 1.00,
               display: 'inline',
             }}
@@ -66,7 +65,7 @@ const HeadExpert: React.FC = () => {
             style={{
               fontFamily: "'CO HEADLINE LIGHT'",
               fontWeight: 300,
-              fontSize: '9rem',
+              fontSize: 'clamp(4rem, 12vw, 9rem)',
               lineHeight: 1.00,
               display: 'inline',
             }}
@@ -77,7 +76,7 @@ const HeadExpert: React.FC = () => {
             style={{
               fontFamily: "'CO HEADLINE BOLD'",
               fontWeight: 700,
-              fontSize: '9rem',
+              fontSize: 'clamp(4rem, 12vw, 9rem)',
               lineHeight: 1.00,
               display: 'inline',
             }}
@@ -103,7 +102,7 @@ const HeadExpert: React.FC = () => {
           <p
             style={{
               fontWeight: 700,
-              fontSize: 'clamp(14px, 2vw, 16px)',
+              fontSize: 'clamp(16px, 2.5vw, 18px)',
               color: "#fff",
               fontFamily: "'CO Text Bold', Arial, sans-serif",
               marginBottom: 16,
@@ -115,7 +114,7 @@ const HeadExpert: React.FC = () => {
           <p
             style={{
               fontWeight: 400,
-              fontSize: 'clamp(13px, 1.8vw, 15px)',
+              fontSize: 'clamp(15px, 2.2vw, 17px)',
               color: "#fff",
               fontFamily: "'CO Text', Arial, sans-serif",
               lineHeight: 1.6,
@@ -130,7 +129,7 @@ const HeadExpert: React.FC = () => {
               className="border border-white text-white font-bold rounded-full px-4 sm:px-6 md:px-8 py-3 transition hover:bg-white hover:text-[#ff7300]"
               style={{
                 fontFamily: "'CO Text Bold', Arial, sans-serif",
-                fontSize: 'clamp(12px, 1.8vw, 16px)',
+                fontSize: 'clamp(14px, 2vw, 16px)',
                 background: "transparent",
                 cursor: "pointer",
                 border: "2px solid #fff",

@@ -39,7 +39,6 @@ const HeadAssist: React.FC = () => {
             style={{
               fontFamily: "'CO Text Light', sans-serif",
               fontWeight: 300,
-              fontSize: '3rem',
               lineHeight: 1.1,
             }}
           >
@@ -47,7 +46,7 @@ const HeadAssist: React.FC = () => {
               style={{
                 fontFamily: "'CO HEADLINE LIGHT'",
                 fontWeight: 300,
-                fontSize: '3.2rem',
+                fontSize: 'clamp(4rem, 12vw, 9rem)',
                 lineHeight: 1.05,
                 display: 'block',
               }}
@@ -58,7 +57,7 @@ const HeadAssist: React.FC = () => {
               style={{
                 fontFamily: "'CO HEADLINE BOLD'",
                 fontWeight: 700,
-                fontSize: '3.2rem',
+                fontSize: 'clamp(4rem, 12vw, 9rem)',
                 lineHeight: 1.05,
                 display: 'block',
               }}

@@ -25,10 +25,10 @@ const HeadNous: React.FC = () => {
           style={{
             fontFamily: "'CO HEADLINE LIGHT'",
             fontWeight: 300,
+            fontSize: 'clamp(4rem, 12vw, 9rem)',
             lineHeight: 1.00,
-            display: 'inline',
+            display: 'block',
           }}
-          className="block text-3xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl"
         >
           On ne fait pas que<br />
           suivre les projets.
@@ -38,18 +38,19 @@ const HeadNous: React.FC = () => {
           style={{
             fontFamily: "'CO HEADLINE BOLD'",
             fontWeight: 700,
+            fontSize: 'clamp(4rem, 12vw, 9rem)',
             lineHeight: 1.00,
-            display: 'inline',
+            display: 'block',
           }}
-          className="block text-4xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-[9rem]"
         >
           On les propulse
         </span>
       </h1>
       <button
-        className="border-2 border-white text-white font-bold rounded-full px-8 py-3 text-2xl transition w-fit"
+        className="border-2 border-white text-white font-bold rounded-full px-8 py-3 transition w-fit"
         style={{
           fontFamily: "'CO HEADLINE BOLD', Arial, sans-serif",
+          fontSize: 'clamp(14px, 2vw, 16px)',
           letterSpacing: '0.03em',
           background: 'transparent',
           marginBottom: '1.5rem',
@@ -72,20 +73,16 @@ const HeadNous: React.FC = () => {
     <img
       src={fuseeHome}
       alt="Fusée Home"
-      className="
-        absolute object-contain z-10
-        right-[-40px] bottom-[-40px]
-        w-[200px] h-[150px]
-        sm:w-[400px] sm:h-[280px] sm:right-[-80px] sm:bottom-[-60px]
-        md:w-[600px] md:h-[450px] md:right-[-150px] md:bottom-[-120px]
-        lg:w-[900px] lg:h-[680px] lg:right-[-250px] lg:bottom-[-200px]
-        xl:w-[1200px] xl:h-[900px] xl:right-[-350px] xl:bottom-[-250px]
-      "
+      className="absolute object-contain z-10 hidden lg:block"
       style={{
         pointerEvents: 'none',
         userSelect: 'none',
         opacity: 1,
         transform: 'rotate(-12deg)',
+        right: 'clamp(-350px, -25vw, -150px)',
+        bottom: 'clamp(-250px, -18vw, -120px)',
+        width: 'clamp(600px, 60vw, 1200px)',
+        height: 'clamp(450px, 45vw, 900px)',
       }}
       draggable={false}
     />
