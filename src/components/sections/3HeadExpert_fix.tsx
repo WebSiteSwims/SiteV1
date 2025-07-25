@@ -35,7 +35,7 @@ const HeadExpert: React.FC = () => {
           style={{
             fontFamily: "'CO HEADLINE LIGHT', Arial, sans-serif",
             fontWeight: 300,
-            fontSize: '9rem',
+            fontSize: 'clamp(1.8rem, 6vw, 9rem)',
             lineHeight: 1.1,
           }}
         >
@@ -43,7 +43,7 @@ const HeadExpert: React.FC = () => {
             style={{
               fontFamily: "'CO HEADLINE LIGHT'",
               fontWeight: 300,
-              fontSize: '9rem',
+              fontSize: 'clamp(1.8rem, 6vw, 9rem)',
               lineHeight: 1.00,
               display: 'inline',
             }}
@@ -54,7 +54,7 @@ const HeadExpert: React.FC = () => {
             style={{
               fontFamily: "'CO HEADLINE BOLD'",
               fontWeight: 700,
-              fontSize: '9rem',
+              fontSize: 'clamp(1.8rem, 6vw, 9rem)',
               lineHeight: 1.00,
               display: 'inline',
             }}
@@ -66,7 +66,7 @@ const HeadExpert: React.FC = () => {
             style={{
               fontFamily: "'CO HEADLINE LIGHT'",
               fontWeight: 300,
-              fontSize: '9rem',
+              fontSize: 'clamp(1.8rem, 6vw, 9rem)',
               lineHeight: 1.00,
               display: 'inline',
             }}
@@ -77,7 +77,7 @@ const HeadExpert: React.FC = () => {
             style={{
               fontFamily: "'CO HEADLINE BOLD'",
               fontWeight: 700,
-              fontSize: '9rem',
+              fontSize: 'clamp(1.8rem, 6vw, 9rem)',
               lineHeight: 1.00,
               display: 'inline',
             }}
@@ -87,7 +87,7 @@ const HeadExpert: React.FC = () => {
         </h1>
       </motion.div>
       <motion.div
-        className="z-10 lg:pr-10 xl:pr-20 flex-1 flex flex-col justify-center items-center lg:items-center w-full lg:w-auto"
+        className="z-10 lg:pr-10 xl:pr-20 flex-1 flex flex-col justify-center items-start lg:items-end w-full lg:w-auto"
         style={{ opacity, y }}
       >
         <div
@@ -97,7 +97,6 @@ const HeadExpert: React.FC = () => {
             fontFamily: "'CO Text', Arial, sans-serif",
             marginTop: 0,
             width: "100%",
-            textAlign: "center",
           }}
         >
           <p
