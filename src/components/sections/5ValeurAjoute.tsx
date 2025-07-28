@@ -1,8 +1,8 @@
 import React, { useRef } from "react";
 import iconeFlamme from "../images/FUSEE-18.png";
-import refImg1 from "../images/Integrateur_AVEVA.png";
-import refImg2 from "../images/Integrateur_AVEVA.png";
-import refImg3 from "../images/Integrateur_AVEVA.png";
+import refImg1 from "../images/AssistanceTechnique .png";
+import refImg2 from "../images/AssistanceTechnique .png";
+import refImg3 from "../images/AssistanceTechnique .png";
 
 const valeurs = [
   {
@@ -78,22 +78,21 @@ const references = [
 ];
 
 const ValeurAjoute: React.FC = () => {
-  const sliderRef = useRef<HTMLDivElement>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section className="w-full bg-[#f8f8fa] py-12 px-0">
-      <div className="max-w-7xl mx-auto px-4">
+    <section className="w-full bg-[#f7f7f7] py-12 px-0">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-start gap-10 mb-12">
-          {/* Left */}
-          <div className="flex-1 min-w-[320px]">
-            <div className="flex items-center mb-4">
-              <img src={iconeFlamme} alt="" className="w-6 h-6 mr-2" />
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-1 lg:gap-2 items-center mb-8 lg:mb-12">
+          {/* Left - Texte */}
+          <div className="lg:col-span-2">
+            <div className="flex items-center mb-4 lg:mb-6">
+              <img src={iconeFlamme} alt="" className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 object-contain mr-2" />
               <span
-                className="text-lg font-bold"
+                className="font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl text-black"
                 style={{
                   fontFamily: "'CO HEADLINE BOLD', Arial, sans-serif",
-                  color: "#222",
                 }}
               >
                 Notre valeur ajoutée
@@ -103,147 +102,54 @@ const ValeurAjoute: React.FC = () => {
               className="font-bold mb-0"
               style={{
                 fontFamily: "'CO HEADLINE BOLD', Arial, sans-serif",
-                fontSize: "2.2rem",
+                fontSize: "clamp(2rem, 8vw, 3.5rem)",
                 lineHeight: 1.1,
                 color: "#111",
               }}
             >
-              <span className="text-[#7b2ff2]" style={{ fontSize: "2.5rem" }}>4</span>{" "}
+              <span className="text-[#7b2ff2]" style={{ fontSize: "clamp(2.5rem, 9vw, 4rem)" }}>4</span>{" "}
               RAISONS DE<br />
               NE PAS PASSER<br />
               À CÔTÉ DE NOUS
             </h2>
           </div>
-          {/* Right */}
-          <div className="flex-1 flex flex-col md:flex-row gap-4 mt-6 md:mt-0">
-            {valeurs.map((v, idx) => (
-              <div
-                key={v.title}
-                className="flex-1 rounded-2xl px-6 py-5 bg-white border-2 border-[#e5e5f7] transition-all duration-300 shadow-sm"
-                style={{
-                  minWidth: 200,
-                  fontFamily: "'CO Text', Arial, sans-serif",
-                  boxShadow: "0 4px 24px 0 rgba(80,40,120,0.04)",
-                }}
-              >
+
+          {/* Right - Cartes slider rapprochées */}
+          <div className="lg:col-span-3 flex justify-start mt-6 lg:mt-0">
+            <div
+              ref={scrollRef}
+              className="flex gap-3 lg:gap-4 overflow-x-auto scrollbar-thin scrollbar-thumb-[#d1c4e9] scrollbar-track-transparent pb-4 w-full"
+              style={{ scrollSnapType: "x mandatory" }}
+            >
+              {valeurs.map((valeur, idx) => (
                 <div
-                  className="font-bold mb-1"
-                  style={{
-                    fontFamily: "'CO HEADLINE BOLD', Arial, sans-serif",
-                    color: idx === 1 ? "#7b2ff2" : "#222",
-                    fontSize: 18,
-                  }}
+                  key={valeur.title}
+                  className="min-w-[220px] sm:min-w-[240px] lg:min-w-[260px] max-w-[240px] sm:max-w-[260px] lg:max-w-[280px] bg-white rounded-2xl border-2 border-[#a78bfa] p-4 lg:p-5 shadow-lg flex-shrink-0 transition-all duration-300 hover:shadow-xl hover:bg-[#7b2ff2] hover:border-[#7b2ff2] group cursor-pointer"
+                  style={{ scrollSnapAlign: "start" }}
                 >
-                  {v.title}
-                </div>
-                <div className="text-base text-[#666]">{v.desc}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-        {/* Références */}
-        <div className="mt-2">
-          <section className="w-full py-12 px-0 bg-transparent">
-            <div className="max-w-7xl mx-auto px-4">
-              {/* Slider */}
-              <div
-                ref={sliderRef}
-                className="flex gap-8 overflow-x-auto scrollbar-thin scrollbar-thumb-[#d1c4e9] scrollbar-track-transparent pb-6"
-                style={{ scrollSnapType: "x mandatory" }}
-              >
-                {references.map((ref, idx) => (
-                  <div
-                    key={ref.title}
-                    className="min-w-[600px] max-w-[600px] bg-gradient-to-br from-[#7b2ff2] to-[#a18cd1] rounded-[32px] p-8 flex flex-col md:flex-row gap-8 shadow-xl scrollSnapAlign-start"
+                  <h3
+                    className="font-bold mb-2 lg:mb-3 transition-colors duration-300 text-[#7b2ff2] group-hover:text-white"
                     style={{
-                      scrollSnapAlign: "start",
-                      boxShadow: "0 8px 32px 0 rgba(80,40,120,0.10)",
+                      fontFamily: "'CO HEADLINE BOLD', Arial, sans-serif",
+                      fontSize: "clamp(1rem, 3vw, 1.2rem)",
                     }}
                   >
-                    {/* Bloc gauche */}
-                    <div className="flex-1 flex flex-col justify-between">
-                      <div>
-                        <div className="flex items-center mb-4">
-                          <img src={iconeFlamme} alt="" className="w-7 h-7 mr-3" />
-                          <span
-                            className="text-2xl font-bold text-white"
-                            style={{
-                              fontFamily: "'CO HEADLINE BOLD', Arial, sans-serif",
-                            }}
-                          >
-                            Références
-                          </span>
-                        </div>
-                        <div className="flex flex-wrap gap-2 mb-4">
-                          {ref.tags.map((tag) => (
-                            <span
-                              key={tag}
-                              className="bg-white/30 text-white text-xs font-bold px-3 py-1 rounded-full"
-                              style={{ fontFamily: "'CO Text Bold', Arial, sans-serif" }}
-                            >
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-                        <div
-                          className="text-white font-bold mb-4"
-                          style={{
-                            fontFamily: "'CO HEADLINE BOLD', Arial, sans-serif",
-                            fontSize: "1.2rem",
-                          }}
-                        >
-                          {ref.title}
-                        </div>
-                        <div className="mb-4">
-                          <div className="text-white font-bold mb-1" style={{ fontFamily: "'CO HEADLINE BOLD', Arial, sans-serif" }}>
-                            Besoin du client
-                          </div>
-                          <div className="text-white text-base" style={{ fontFamily: "'CO Text', Arial, sans-serif" }}>
-                            {ref.besoin}
-                          </div>
-                        </div>
-                        <div className="mb-4">
-                          <div className="text-white font-bold mb-1" style={{ fontFamily: "'CO HEADLINE BOLD', Arial, sans-serif" }}>
-                            Ce que nous avons fait
-                          </div>
-                          <ul className="list-disc pl-5 text-white text-base" style={{ fontFamily: "'CO Text', Arial, sans-serif" }}>
-                            {ref.actions.map((a, i) => (
-                              <li key={i}>{a}</li>
-                            ))}
-                          </ul>
-                        </div>
-                        <div>
-                          <div className="text-white font-bold mb-1" style={{ fontFamily: "'CO HEADLINE BOLD', Arial, sans-serif" }}>
-                            Résultats et impacts
-                          </div>
-                          <ul className="list-disc pl-5 text-white text-base" style={{ fontFamily: "'CO Text', Arial, sans-serif" }}>
-                            {ref.resultats.map((r, i) => (
-                              <li key={i}>{r}</li>
-                            ))}
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                    {/* Bloc droit */}
-                    <div className="flex-1 flex items-center justify-center">
-                      <img
-                        src={ref.image}
-                        alt={ref.title}
-                        className="w-full max-w-[320px] rounded-2xl object-cover"
-                        style={{ minHeight: 220, background: "#fff" }}
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
-              {/* Dots */}
-              <div className="flex justify-center mt-6 gap-2">
-                <span className="w-4 h-2 rounded-full bg-[#7b2ff2] opacity-80 inline-block" />
-                <span className="w-4 h-2 rounded-full bg-[#e5e5f7] opacity-80 inline-block" />
-                <span className="w-4 h-2 rounded-full bg-[#e5e5f7] opacity-80 inline-block" />
-              </div>
+                    {valeur.title}
+                  </h3>
+                  <p
+                    className="transition-colors duration-300 text-[#444] group-hover:text-white"
+                    style={{
+                      fontFamily: "'CO Text', Arial, sans-serif",
+                      fontSize: "clamp(12px, 2.5vw, 14px)",
+                      lineHeight: 1.5,
+                    }}
+                  >
+                    {valeur.desc}
+                  </p>
+                </div>
+              ))}
             </div>
-          </section>
+          </div>
         </div>
       </div>
     </section>

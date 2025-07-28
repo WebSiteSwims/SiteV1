@@ -7,6 +7,7 @@ import Focus from '../components/sections/5Focus';
 import Offres from '../components/sections/5NosOffres';
 import Valeur from '../components/sections/5ValeurAjoute';
 import Contact from '../components/ui/Contact';
+import Reference from '../components/sections/5References';
 
 
 const HomePage: React.FC = () => {
@@ -20,6 +21,7 @@ const HomePage: React.FC = () => {
         <Focus />
         <Offres />
         <Valeur />
+        <Reference />
         <Contact />
       </main>
       <Footer />
