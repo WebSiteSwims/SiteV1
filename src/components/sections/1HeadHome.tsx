@@ -34,7 +34,7 @@ const Hero: React.FC = () => {
       }}
     >
       <motion.div
-        className="z-10 pt-30 pl-10 md:pt-60 md:pl-20"
+        className="z-10 pt-8 pl-4 sm:pt-20 sm:pl-8 md:pt-32 md:pl-12 lg:pt-40 lg:pl-20"
         style={{ opacity, y }}
       >
         <h1
@@ -42,28 +42,26 @@ const Hero: React.FC = () => {
           style={{
             fontFamily: "'CO Text Light', sans-serif",
             fontWeight: 300,
-            fontSize: '4.5rem',
-            lineHeight: 1.1,
           }}
         >
           <span
             style={{
               fontFamily: "'CO HEADLINE LIGHT'",
               fontWeight: 300,
-              fontSize: '9rem',
+              fontSize: 'clamp(4rem, 12vw, 9rem)',
               lineHeight: 1.00, 
-              display: 'inline',
+              display: 'block',
             }}
           >
-            L'expertise qui vous <br />
+            L'expertise qui vous
           </span>
           <span
             style={{
               fontFamily: "'CO HEADLINE BOLD'",
               fontWeight: 700,
-              fontSize: '9rem',
+              fontSize: 'clamp(4rem, 12vw, 9rem)',
               lineHeight: 1.00, 
-              display: 'inline',
+              display: 'block',
             }}
           >
             propulse <span className="text-white">!</span>
@@ -74,12 +72,14 @@ const Hero: React.FC = () => {
       <img
         src={fuseeHome}
         alt="Fusée Home"
-        className="absolute bottom-[-310px] right-[-450px] w-[1400px] h-[1150px] object-contain z-10"
+        className="absolute bottom-[-310px] right-[-450px] object-contain z-10 hidden lg:block"
         style={{
           pointerEvents: 'none',
           userSelect: 'none',
           opacity: 1,
           transform: 'rotate(-12deg)',
+          width: 'clamp(800px, 80vw, 1400px)',
+          height: 'clamp(650px, 65vw, 1150px)',
         }}
       />
     </section>

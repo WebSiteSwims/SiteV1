@@ -9,12 +9,13 @@ const navLinks = [
   {
     name: 'Expertises',
     subMenu: [
+      { name: 'Nos expertises', path: '/nos-expertises' },
       { name: 'Intégrateur AVEVA', path: '/integrateur-aveva' },
       { name: "Bureau d'étude", path: '/bureau-detude' },
       { name: 'Assistance technique', path: '/assistance-technique' },
     ],
   },
-  { name: 'DMDS', path: '/nos-expertises' },
+  { name: 'DMDS', path: '/page-en-attente' },
 ];
 
 const Header: React.FC = () => {
@@ -66,22 +67,25 @@ const Header: React.FC = () => {
               <div key={link.name} className="relative">
                 <button
                   onClick={() => setShowExpertises((v) => !v)}
-                  className={`text-base font-medium px-4 py-1 rounded-full transition-all
+                  className={`text-base font-semibold px-6 py-2 rounded-full transition-all duration-200 transform hover:scale-105
                     ${active === link.name
-                      ? 'bg-[#ff7300] text-white font-extrabold shadow'
-                      : 'text-black hover:bg-orange-50'
+                      ? 'bg-gradient-to-r from-[#ff7300] to-[#ff8533] text-white font-bold shadow-lg shadow-orange-300/30'
+                      : 'text-black hover:bg-gradient-to-r hover:from-orange-50 hover:to-orange-100 hover:shadow-md'
                     }`}
                   style={{ fontFamily: 'Montserrat, Arial, sans-serif' }}
                 >
-                  {link.name}
+                  {link.name} ▼
                 </button>
                 {showExpertises && (
-                  <div className="absolute top-full left-0 mt-2 bg-white rounded shadow-lg flex flex-col min-w-[220px] z-50">
-                    {link.subMenu.map((sub) => (
+                  <div className="absolute top-full left-0 mt-2 bg-white rounded-xl shadow-xl border border-gray-100 flex flex-col min-w-[220px] z-50 overflow-hidden">
+                    {link.subMenu.map((sub, index) => (
                       <button
                         key={sub.name}
                         onClick={() => handleNavClick(sub.path, link.name)}
-                        className="text-left px-4 py-2 hover:bg-orange-50"
+                        className={`text-left px-6 py-3 hover:bg-gradient-to-r hover:from-orange-50 hover:to-orange-100 transition-all duration-200 font-medium
+                          ${index === 0 ? 'rounded-t-xl' : ''} 
+                          ${index === link.subMenu.length - 1 ? 'rounded-b-xl' : ''}
+                          border-b border-gray-50 last:border-b-0`}
                         style={{ fontFamily: 'Montserrat, Arial, sans-serif' }}
                       >
                         {sub.name}
@@ -94,10 +98,10 @@ const Header: React.FC = () => {
               <button
                 key={link.name}
                 onClick={() => handleNavClick(link.path, link.name)}
-                className={`text-base font-medium px-4 py-1 rounded-full transition-all
+                className={`text-base font-semibold px-6 py-2 rounded-full transition-all duration-200 transform hover:scale-105
                   ${active === link.name
-                    ? 'bg-[#ff7300] text-white font-extrabold shadow'
-                    : 'text-black hover:bg-orange-50'
+                    ? 'bg-gradient-to-r from-[#ff7300] to-[#ff8533] text-white font-bold shadow-lg shadow-orange-300/30'
+                    : 'text-black hover:bg-gradient-to-r hover:from-orange-50 hover:to-orange-100 hover:shadow-md'
                   }`}
                 style={{ fontFamily: 'Montserrat, Arial, sans-serif' }}
               >
@@ -109,7 +113,7 @@ const Header: React.FC = () => {
 
         {/* Desktop Contact Button */}
         <button
-          className="hidden md:block bg-orange-100 text-black font-bold px-8 py-2 rounded-full hover:bg-orange-200 transition-all text-base shadow"
+          className="hidden md:block bg-gradient-to-r from-orange-100 to-orange-200 text-black font-bold px-8 py-3 rounded-full hover:from-orange-200 hover:to-orange-300 transition-all duration-200 text-base shadow-lg hover:shadow-xl transform hover:scale-105"
           onClick={() => setShowContactPopup(true)}
           style={{ fontFamily: 'Montserrat, Arial, sans-serif' }}
         >
@@ -150,22 +154,25 @@ const Header: React.FC = () => {
                 <div key={link.name} className="flex flex-col">
                   <button
                     onClick={() => setShowExpertises((v) => !v)}
-                    className={`text-lg font-bold px-4 py-3 rounded-full transition-all text-left w-full
+                    className={`text-lg font-bold px-6 py-4 rounded-xl transition-all text-left w-full shadow-md hover:shadow-lg
                       ${active === link.name
-                        ? 'bg-[#ff7300] text-white shadow'
-                        : 'text-black hover:bg-orange-50'
+                        ? 'bg-gradient-to-r from-[#ff7300] to-[#ff8533] text-white shadow-lg'
+                        : 'text-black hover:bg-gradient-to-r hover:from-orange-50 hover:to-orange-100'
                       }`}
                     style={{ fontFamily: 'Montserrat, Arial, sans-serif' }}
                   >
-                    {link.name}
+                    {link.name} ▼
                   </button>
                   {showExpertises && (
-                    <div className="flex flex-col bg-orange-50 rounded shadow-inner mb-2">
-                      {link.subMenu.map((sub) => (
+                    <div className="flex flex-col bg-gradient-to-b from-orange-50 to-orange-100 rounded-xl shadow-inner mb-2 mt-2 overflow-hidden">
+                      {link.subMenu.map((sub, index) => (
                         <button
                           key={sub.name}
                           onClick={() => handleNavClick(sub.path, link.name)}
-                          className="text-left px-6 py-2 hover:bg-orange-100"
+                          className={`text-left px-8 py-3 hover:bg-orange-200 transition-all font-medium
+                            ${index === 0 ? 'rounded-t-xl' : ''} 
+                            ${index === link.subMenu.length - 1 ? 'rounded-b-xl' : ''}
+                            border-b border-orange-200 last:border-b-0`}
                           style={{ fontFamily: 'Montserrat, Arial, sans-serif' }}
                         >
                           {sub.name}
@@ -178,10 +185,10 @@ const Header: React.FC = () => {
                 <button
                   key={link.name}
                   onClick={() => handleNavClick(link.path, link.name)}
-                  className={`text-lg font-bold px-4 py-3 rounded-full transition-all text-left w-full
+                  className={`text-lg font-bold px-6 py-4 rounded-xl transition-all text-left w-full shadow-md hover:shadow-lg
                     ${active === link.name
-                      ? 'bg-[#ff7300] text-white shadow'
-                      : 'text-black hover:bg-orange-50'
+                      ? 'bg-gradient-to-r from-[#ff7300] to-[#ff8533] text-white shadow-lg'
+                      : 'text-black hover:bg-gradient-to-r hover:from-orange-50 hover:to-orange-100'
                     }`}
                   style={{ fontFamily: 'Montserrat, Arial, sans-serif' }}
                 >
@@ -190,7 +197,7 @@ const Header: React.FC = () => {
               )
             )}
             <button
-              className="bg-orange-100 text-black font-bold px-4 py-3 rounded-full hover:bg-orange-200 transition-all text-lg shadow w-full"
+              className="bg-gradient-to-r from-orange-100 to-orange-200 text-black font-bold px-6 py-4 rounded-xl hover:from-orange-200 hover:to-orange-300 transition-all text-lg shadow-lg w-full hover:shadow-xl"
               onClick={() => {
                 setShowContactPopup(true);
                 setMenuOpen(false);

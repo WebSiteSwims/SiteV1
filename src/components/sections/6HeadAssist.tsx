@@ -19,17 +19,36 @@ const HeadAssist: React.FC = () => {
   const y = useTransform(scrollY, [0, 200], [0, -30]);
 
   return (
-    <section
-      id="headassist"
-      ref={containerRef}
-      className="min-h-[540px] flex items-center justify-center relative overflow-hidden"
-      style={{
-        background: `url(${fondGrain}) center center / cover no-repeat`,
-        borderRadius: '36px',
-      }}
-    >
+    <div className="relative">
+      {/* Partie blanche au-dessus avec bords arrondis */}
+      <div 
+        className="w-full h-28 bg-white"
+        style={{
+          borderBottomLeftRadius: "60px",
+          borderBottomRightRadius: "60px",
+        }}
+      ></div>
+      
+      <section
+        id="headassist"
+        ref={containerRef}
+        className="min-h-[540px] flex items-center justify-center relative overflow-hidden"
+        style={{
+          background: `url(${fondGrain}) center center / cover no-repeat`,
+          borderTopLeftRadius: "60px",
+          borderTopRightRadius: "60px",
+        }}
+      >
+        {/* Forme arrondie en bas */}
+        <div 
+          className="absolute bottom-0 left-0 w-full h-16 bg-white"
+          style={{
+            borderTopLeftRadius: "60px",
+            borderTopRightRadius: "60px",
+          }}
+        />
       <motion.div
-        className="w-full max-w-7xl mx-auto flex flex-col md:flex-row items-start justify-between px-8 py-20"
+        className="w-full flex flex-col md:flex-row items-center justify-center px-4 md:px-6 lg:px-8 py-20 relative z-10 gap-0"
         style={{ opacity, y }}
       >
         {/* Bloc gauche */}
@@ -39,36 +58,43 @@ const HeadAssist: React.FC = () => {
             style={{
               fontFamily: "'CO Text Light', sans-serif",
               fontWeight: 300,
-              fontSize: '3rem',
-              lineHeight: 1.1,
+              lineHeight: 1.05,
             }}
           >
-            <span
+            <div
               style={{
                 fontFamily: "'CO HEADLINE LIGHT'",
                 fontWeight: 300,
-                fontSize: '3.2rem',
+                fontSize: 'clamp(4rem, 12vw, 9rem)',
                 lineHeight: 1.05,
-                display: 'block',
               }}
             >
               On booste
-            </span>
-            <span
+            </div>
+            <div
               style={{
                 fontFamily: "'CO HEADLINE BOLD'",
                 fontWeight: 700,
-                fontSize: '3.2rem',
+                fontSize: 'clamp(4rem, 12vw, 9rem)',
                 lineHeight: 1.05,
-                display: 'block',
               }}
             >
-              votre quotidien<br />industriel
-            </span>
+              votre quotidien
+            </div>
+            <div
+              style={{
+                fontFamily: "'CO HEADLINE BOLD'",
+                fontWeight: 700,
+                fontSize: 'clamp(4rem, 12vw, 9rem)',
+                lineHeight: 1.05,
+              }}
+            >
+              industriel
+            </div>
           </h1>
         </div>
         {/* Bloc droit */}
-        <div className="flex-1 flex flex-col items-end mt-10 md:mt-0 md:pl-16">
+        <div className="flex-1 flex flex-col items-start mt-0 md:mt-0">
           <div
             className="text-white font-bold mb-2 text-right"
             style={{
@@ -84,7 +110,7 @@ const HeadAssist: React.FC = () => {
               fontFamily: "'CO Text', Arial, sans-serif",
               fontSize: 15,
               lineHeight: 1.7,
-              maxWidth: 370,
+              maxWidth: 480,
             }}
           >
             Chez Swims, on vous embarque dans une dynamique d’expertise, d’agilité et de performance. Des experts opérationnels, déjà rodés à vos outils, vos projets, vos exigences industrielles.
@@ -93,7 +119,7 @@ const HeadAssist: React.FC = () => {
             className="border-2 border-white text-white rounded-full px-6 py-2 font-bold transition hover:bg-white hover:text-[#7b2ff2]"
             style={{
               fontFamily: "'CO Text Bold', Arial, sans-serif",
-              fontSize: 15,
+              fontSize: 16,
               letterSpacing: 0.5,
             }}
           >
@@ -102,6 +128,7 @@ const HeadAssist: React.FC = () => {
         </div>
       </motion.div>
     </section>
+    </div>
   );
 };
 

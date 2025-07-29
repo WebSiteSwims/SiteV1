@@ -43,79 +43,107 @@ const FAQSection: React.FC = () => {
   return (
     <section
       ref={sectionRef}
-      className="bg-[#ff7300] text-white py-12 px-4 md:px-12 flex flex-col items-stretch justify-center min-h-screen w-full"
+      className="w-full py-16 md:py-20 lg:py-24 bg-[#ff7300] text-white"
     >
-      <motion.div
-        className="flex items-center gap-2 mb-2"
-        style={{ opacity }}
-      >
-        <img
-          src={fuseeImg}
-          alt="Fusée"
-          className="w-6 h-6 md:w-7 md:h-7 object-contain"
-        />
-        <span className="font-bold text-base md:text-lg">FAQ</span>
-      </motion.div>
-      {/* Bloc titre + description sur deux colonnes, centrés */}
-      <div className="w-full flex flex-col md:flex-row items-center justify-center mb-8 gap-8 relative">
-        {/* Ligne centrale de séparation */}
-        <div className="flex-1 flex justify-end md:pr-8 min-w-0 z-20">
-          <h2
-            className="font-extrabold text-left
-              text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl
-              mb-2 leading-tight w-full"
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Titre standardisé en haut à gauche */}
+        <motion.div
+          className="flex items-center mb-8 md:mb-12"
+          style={{ opacity }}
+        >
+          <img
+            src={fuseeImg}
+            alt="Fusée"
+            className="w-6 h-6 md:w-7 md:h-7 object-contain mr-2"
+          />
+          <span
+            className="text-lg md:text-xl font-bold text-white"
             style={{
               fontFamily: "'CO HEADLINE BOLD', Arial, sans-serif",
-              lineHeight: 1.05,
-              letterSpacing: -2,
             }}
           >
-            BESOINS D’AIDE ?<br />
-            ON VOUS VOIT<br />
-            VENIR
-          </h2>
-        </div>
-        <div className="flex-1 flex justify-start md:pl-8 min-w-0 z-20">
-          <div className="md:max-w-md w-full">
-            <div className="font-bold text-base md:text-lg lg:text-xl mb-2 text-center md:text-left">
-              Tout savoir sur notre métier ?
-            </div>
-            <div
-              className="text-white/90 text-base sm:text-lg md:text-xl lg:text-2xl text-center md:text-left"
-              style={{ lineHeight: 2 }}
+            FAQ
+          </span>
+        </motion.div>
+      {/* Bloc titre + description sur deux colonnes, centrés */}
+        <div className="w-full flex flex-col lg:flex-row items-center justify-center mb-8 md:mb-12 gap-8">
+          {/* Colonne gauche - Titre */}
+          <div className="flex-1 flex justify-center lg:justify-end lg:pr-8">
+            <h2
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-center lg:text-left"
+              style={{
+                fontFamily: "'CO HEADLINE BOLD', Arial, sans-serif",
+                lineHeight: 1.05,
+                letterSpacing: '-0.02em',
+              }}
             >
-              Une société d’ingénierie spécialisée dans les environnements techniques complexes. On conçoit, on modélise, on forme, et on développe des outils qui font gagner du temps. Et oui, on est vraiment bons.
+              BESOINS D'AIDE ?<br />
+              ON VOUS VOIT<br />
+              VENIR
+            </h2>
+          </div>
+          
+          {/* Colonne droite - Description */}
+          <div className="flex-1 flex justify-center lg:justify-start lg:pl-8">
+            <div className="max-w-md w-full text-center lg:text-left">
+              <div 
+                className="text-lg md:text-xl font-bold mb-4"
+                style={{
+                  fontFamily: "'CO HEADLINE BOLD', Arial, sans-serif",
+                }}
+              >
+                Tout savoir sur notre métier ?
+              </div>
+              <div
+                className="text-white/90 text-base md:text-lg lg:text-xl"
+                style={{ 
+                  lineHeight: 1.6,
+                  fontFamily: "'CO HEADLINE BOLD', Arial, sans-serif",
+                }}
+              >
+                Une société d'ingénierie spécialisée dans les environnements techniques complexes. On conçoit, on modélise, on forme, et on développe des outils qui font gagner du temps. Et oui, on est vraiment bons.
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      {/* Bloc FAQ */}
-      <div className="w-full flex flex-col gap-4">
-        {faqData.map((item, idx) => (
-          <motion.div
-            key={idx}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: idx * 0.08 }}
-            className="border border-white rounded-xl px-5 py-0 flex flex-col transition-all duration-300 bg-transparent w-full"
-          >
-            <button
-              className="flex items-center justify-between w-full text-left font-semibold text-white text-base md:text-lg py-4 focus:outline-none"
-              onClick={() => setOpen(open === idx ? null : idx)}
-              aria-expanded={open === idx}
+        {/* Bloc FAQ */}
+        <div className="w-full flex flex-col gap-4">
+          {faqData.map((item, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: idx * 0.08 }}
+              className="border border-white rounded-xl px-5 py-0 flex flex-col transition-all duration-300 bg-transparent w-full"
             >
-              <span>{item.question}</span>
-              <span className="ml-4">
-                {open === idx ? <Minus className="w-6 h-6" /> : <Plus className="w-6 h-6" />}
-              </span>
-            </button>
-            <div
-              className={`overflow-hidden transition-all duration-300 ${open === idx ? 'max-h-40 mt-2 opacity-100' : 'max-h-0 opacity-0'}`}
-            >
-              <p className="text-white/90 text-sm md:text-base">{item.answer}</p>
-            </div>
-          </motion.div>
-        ))}
+              <button
+                className="flex items-center justify-between w-full text-left font-semibold text-white text-base md:text-lg py-4 focus:outline-none"
+                onClick={() => setOpen(open === idx ? null : idx)}
+                aria-expanded={open === idx}
+                style={{
+                  fontFamily: "'CO HEADLINE BOLD', Arial, sans-serif",
+                }}
+              >
+                <span>{item.question}</span>
+                <span className="ml-4">
+                  {open === idx ? <Minus className="w-6 h-6" /> : <Plus className="w-6 h-6" />}
+                </span>
+              </button>
+              <div
+                className={`overflow-hidden transition-all duration-300 ${open === idx ? 'max-h-40 mt-2 opacity-100' : 'max-h-0 opacity-0'}`}
+              >
+                <p 
+                  className="text-white/90 text-sm md:text-base pb-4"
+                  style={{
+                    fontFamily: "'CO HEADLINE BOLD', Arial, sans-serif",
+                  }}
+                >
+                  {item.answer}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

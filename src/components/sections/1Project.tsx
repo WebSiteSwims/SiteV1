@@ -3,23 +3,53 @@ import fuseeImg from '../images/FUSEE-18.png';
 
 const Project: React.FC = () => {
   return (
-    <section className="w-full flex flex-col items-center justify-center py-20 bg-[#f5f5f5]">
-      <div className="flex items-center justify-center mb-8">
-        {/* Image fusée à la place du motif orange */}
-        <img
-          src={fuseeImg}
-          alt="Fusée"
-          className="w-10 h-10 md:w-12 md:h-12 object-contain mr-2"
-        />
-        <h2 className="text-4xl md:text-5xl font-extrabold text-black">
-          Vous avez un projet&nbsp;?
-        </h2>
-      </div>
-        <div className="dmds-buttons flex gap-4 mt-4">
-          <span className="btn-gradient-wrapper">
-            <button className="dmds-btn" data-testid="dmds-btn">Travaillons ensemble</button>
+    <section className="w-full py-16 md:py-20 lg:py-24 bg-[#f5f5f5]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Titre standardisé en haut à gauche */}
+        <div className="flex items-center mb-8 md:mb-12">
+          <img
+            src={fuseeImg}
+            alt="Fusée"
+            className="w-6 h-6 md:w-7 md:h-7 object-contain mr-2"
+          />
+          <span
+            className="text-lg md:text-xl font-bold text-zinc-800"
+            style={{
+              fontFamily: "'CO HEADLINE BOLD', Arial, sans-serif",
+            }}
+          >
+            Un projet ?
           </span>
         </div>
+
+        {/* Contenu centré */}
+        <div className="flex flex-col items-center text-center">
+          <h2 
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-8 md:mb-12"
+            style={{
+              fontFamily: "'CO HEADLINE BOLD', Arial, sans-serif",
+              lineHeight: 1.05,
+              color: "#111",
+              letterSpacing: '-0.02em',
+            }}
+          >
+            Vous avez un projet&nbsp;?
+          </h2>
+          <div className="flex justify-center">
+            <span className="btn-gradient-wrapper">
+              <button 
+                className="dmds-btn px-6 py-3 rounded-full text-base md:text-lg font-semibold transition-all duration-300" 
+                data-testid="dmds-btn"
+                style={{
+                  fontFamily: "'CO HEADLINE BOLD', Arial, sans-serif",
+                }}
+              >
+                Travaillons ensemble
+              </button>
+            </span>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };

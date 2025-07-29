@@ -36,11 +36,28 @@ const ExpertiseCard: React.FC<ExpertiseCardProps> = ({
     >
       <img src={image} alt={title} className="w-full h-48 object-cover" />
       <div className="p-6 flex flex-col justify-between min-h-[200px]">
-        <h3 className="text-xl font-semibold mb-2 text-zinc-800">{title}</h3>
-        <p className="text-slate-600 flex-grow">{description}</p>
+        <h3 
+          className="text-xl font-semibold mb-2 text-zinc-800"
+          style={{
+            fontFamily: "'CO HEADLINE BOLD', Arial, sans-serif",
+          }}
+        >
+          {title}
+        </h3>
+        <p 
+          className="text-gray-600 flex-grow"
+          style={{
+            fontFamily: "'CO HEADLINE BOLD', Arial, sans-serif",
+          }}
+        >
+          {description}
+        </p>
         <div className="mt-4 text-right">
           <button
             className={`px-5 py-2 rounded-full font-bold shadow-sm transition ${buttonColor}`}
+            style={{
+              fontFamily: "'CO HEADLINE BOLD', Arial, sans-serif",
+            }}
           >
             Découvrir
           </button>
@@ -80,10 +97,11 @@ const Expertise: React.FC = () => {
   ];
 
   return (
-    <section id="expertise" ref={sectionRef} className="section py-20 md:py-32 bg-white">
-      <div className="container-custom">
+    <section id="expertise" ref={sectionRef} className="w-full py-16 md:py-20 lg:py-24 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Titre standardisé en haut à gauche */}
         <motion.div
-          className="flex items-center gap-2 mb-8"
+          className="flex items-center mb-8 md:mb-12"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.7 }}
@@ -91,12 +109,13 @@ const Expertise: React.FC = () => {
           <img
             src={fuseeImg}
             alt="Fusée"
-            className="w-5 h-5 md:w-6 md:h-6 object-contain"
-            style={{ display: 'inline-block' }}
+            className="w-6 h-6 md:w-7 md:h-7 object-contain mr-2"
           />
           <span
-            className="text-black font-bold text-lg"
-            style={{ fontFamily: "'CO HEADLINE BOLD'", fontWeight: 700 }}
+            className="text-lg md:text-xl font-bold text-zinc-800"
+            style={{
+              fontFamily: "'CO HEADLINE BOLD', Arial, sans-serif",
+            }}
           >
             Nos expertises
           </span>
@@ -104,34 +123,26 @@ const Expertise: React.FC = () => {
         
         <div className="mb-12">
           <h2
-            className="font-bold"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold"
             style={{
-              fontFamily: "'CO HEADLINE BOLD'",
-              fontWeight: 700,
-              fontSize: '2.5rem',
-              lineHeight: 1.1,
-              letterSpacing: '-1px',
-              marginBottom: '0.2em',
-              textAlign: 'left',
-              color: '#181818',
+              fontFamily: "'CO HEADLINE BOLD', Arial, sans-serif",
+              lineHeight: 1.05,
+              letterSpacing: '-0.02em',
+              color: '#111',
             }}
           >
             FAIRE <span style={{ color: '#ff7300' }}>DÉCOLLER VOS IDÉES&nbsp;?</span>
           </h2>
           <h3
-            className="font-bold"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mt-2"
             style={{
-              fontFamily: "'CO HEADLINE BOLD'",
-              fontWeight: 700,
-              fontSize: '2rem',
-              lineHeight: 1.1,
-              letterSpacing: '-1px',
-              textAlign: 'left',
-              color: '#181818',
-              marginTop: 0,
+              fontFamily: "'CO HEADLINE BOLD', Arial, sans-serif",
+              lineHeight: 1.05,
+              letterSpacing: '-0.02em',
+              color: '#111',
             }}
           >
-            C’EST NOTRE SPÉCIALITÉ
+            C'EST NOTRE SPÉCIALITÉ
           </h3>
         </div>
 

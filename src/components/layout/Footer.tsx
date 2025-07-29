@@ -1,5 +1,6 @@
 import React from 'react';
 import { Linkedin } from 'lucide-react';
+import logoSwimsBlanc from '../images/SWIMS.PASTILLE.BLANC@3x.png';
 
 const Footer: React.FC = () => {
   return (
@@ -7,11 +8,15 @@ const Footer: React.FC = () => {
       {/* Partie orange avec double arrondi au centre */}
       <div className="relative flex justify-center items-stretch w-full overflow-hidden" style={{ minHeight: 320 }}>
         {/* Carte gauche */}
-        <div className="bg-[#ff7300] text-white flex-1 flex flex-col justify-between px-8 pt-10 pb-8 rounded-tr-[120px]">
+        <div className="bg-[#ff7300] text-white flex-1 flex flex-col justify-between px-8 pt-10 pb-8 rounded-tr-[120px] relative">
           <div className="flex flex-col items-center justify-center h-full">
             {/* Logo */}
-            <div className="bg-white text-[#ff7300] rounded-full w-20 h-20 flex items-center justify-center text-4xl font-bold mb-6">
-              SWIMS
+            <div className="mb-6">
+              <img 
+                src={logoSwimsBlanc} 
+                alt="Swims logo" 
+                className="w-20 h-20 object-contain"
+              />
             </div>
             {/* Accès rapide */}
             <div className="flex flex-col items-center">
@@ -28,8 +33,16 @@ const Footer: React.FC = () => {
             </div>
           </div>
         </div>
+        
         {/* Carte droite */}
-        <div className="bg-[#ff7300] text-white flex-1 flex flex-col justify-between px-8 pt-10 pb-8 rounded-tl-[120px]">
+        <div className="bg-[#ff7300] text-white flex-1 flex flex-col justify-between px-8 pt-10 pb-8 rounded-tl-[120px] relative">
+          {/* LinkedIn positionné en haut à droite */}
+          <div className="absolute top-6 right-6">
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-white text-3xl hover:text-[#e5e5e5] transition-colors">
+              <Linkedin size={36} />
+            </a>
+          </div>
+          
           <div className="flex flex-col items-center justify-center h-full">
             {/* Nous contactez */}
             <div className="flex flex-col items-center mb-8">
@@ -42,35 +55,31 @@ const Footer: React.FC = () => {
                 <span>contact@swims-france.com</span>
               </div>
             </div>
+            
             {/* Restez informé */}
             <div className="flex flex-col items-center mb-8">
               <div className="flex items-center gap-2 mb-4">
                 <span className="inline-block rotate-[-20deg] text-lg">➤</span>
                 <span className="font-bold text-lg">Restez informé</span>
               </div>
-              <form className="flex w-full max-w-xs">
+              <form className="relative w-full max-w-xs">
                 <input
                   type="email"
                   placeholder="e-mail"
-                  className="rounded-l-full px-4 py-2 text-[#ff7300] bg-white placeholder-[#ff7300] focus:outline-none w-full"
+                  className="rounded-full px-4 py-2 pr-24 text-[#ff7300] bg-white placeholder-[#ff7300] focus:outline-none w-full"
                 />
                 <button
                   type="submit"
-                  className="bg-white text-[#ff7300] font-bold px-5 rounded-r-full hover:bg-orange-100 transition tracking-wide"
+                  className="absolute right-1 top-1 bottom-1 bg-[#ff7300] text-white font-bold px-4 rounded-full hover:bg-[#e65a00] transition tracking-wide text-sm"
                 >
-                  S’INSCRIRE
+                  S'INSCRIRE
                 </button>
               </form>
-            </div>
-            {/* LinkedIn */}
-            <div className="flex flex-col items-end w-12 mt-4">
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-white text-3xl hover:text-[#e5e5e5]">
-                <Linkedin size={36} />
-              </a>
             </div>
           </div>
         </div>
       </div>
+      
       {/* Bas de footer */}
       <div className="bg-[#ededed] text-center py-4 px-2">
         <div className="text-[#ff7300] font-medium mb-1">

@@ -6,6 +6,7 @@ import imgAutomatisation from "../images/Assistance_technique.png";
 import imgMaquette from "../images/Assistance_technique.png";
 import imgSecurite from "../images/Assistance_technique.png";
 import imgFormation from "../images/Assistance_technique.png";
+import guillements from "../images/guillemets orange-24.png";
 
 const cards = [
   {
@@ -46,36 +47,38 @@ const cardVariants = {
 
 const SolutionConcret: React.FC = () => {
   return (
-    <section className="w-full bg-white pt-10 pb-0 px-0 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4">
-        {/* Header */}
-        <div className="flex items-center mb-6">
-          <img src={iconeFlamme} alt="" className="w-7 h-7 mr-3" />
+    <section className="w-full bg-white pb-0">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Titre standardisé en haut à gauche */}
+        <div className="flex items-center mb-8 md:mb-12 pt-8">
+          <img src={iconeFlamme} alt="" className="w-6 h-6 md:w-7 md:h-7 object-contain mr-2" />
           <span
-            className="text-lg font-bold"
+            className="font-bold text-2xl sm:text-3xl md:text-4xl text-black"
             style={{
               fontFamily: "'CO HEADLINE BOLD', Arial, sans-serif",
-              color: "#111",
             }}
           >
             Nos solutions concrètes
           </span>
         </div>
+
+        {/* Titre principal */}
         <h2
           className="font-bold mb-10"
           style={{
             fontFamily: "'CO HEADLINE BOLD', Arial, sans-serif",
-            fontSize: "2.7rem",
+            fontSize: "clamp(2rem, 4vw, 2.7rem)",
             lineHeight: 1.05,
             letterSpacing: "-0.02em",
             color: "#111",
           }}
         >
           DE LA TECHNIQUE MAIS<br />
-          SURTOUT DE <span style={{ color: "#7b2ff2" }}>L’IMPACT</span>
+          SURTOUT DE <span style={{ color: "#7b2ff2" }}>L'IMPACT</span>
         </h2>
-        {/* Cartes */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+
+        {/* Cartes - Première ligne (3 cartes) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-8">
           {cards.slice(0, 3).map((card, i) => (
             <motion.div
               key={card.title}
@@ -92,30 +95,34 @@ const SolutionConcret: React.FC = () => {
                 className="w-full h-40 object-cover"
                 style={{ borderTopLeftRadius: 16, borderTopRightRadius: 16 }}
               />
-              <div className="p-6 flex-1 flex flex-col">
-                <div
-                  className="font-bold text-lg mb-2"
+              <div className="p-6 flex-1">
+                <h3
+                  className="font-bold mb-3"
                   style={{
                     fontFamily: "'CO HEADLINE BOLD', Arial, sans-serif",
-                    color: "#111",
+                    fontSize: "1.3rem",
+                    color: "#7b2ff2",
                   }}
                 >
                   {card.title}
-                </div>
-                <div
-                  className="text-base"
+                </h3>
+                <p
                   style={{
                     fontFamily: "'CO Text', Arial, sans-serif",
-                    color: "#222",
+                    fontSize: "15px",
+                    lineHeight: 1.5,
+                    color: "#444",
                   }}
                 >
                   {card.desc}
-                </div>
+                </p>
               </div>
             </motion.div>
           ))}
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+
+        {/* Cartes - Deuxième ligne (2 cartes) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-12">
           {cards.slice(3).map((card, i) => (
             <motion.div
               key={card.title}
@@ -132,43 +139,57 @@ const SolutionConcret: React.FC = () => {
                 className="w-full h-40 object-cover"
                 style={{ borderTopLeftRadius: 16, borderTopRightRadius: 16 }}
               />
-              <div className="p-6 flex-1 flex flex-col">
-                <div
-                  className="font-bold text-lg mb-2"
+              <div className="p-6 flex-1">
+                <h3
+                  className="font-bold mb-3"
                   style={{
                     fontFamily: "'CO HEADLINE BOLD', Arial, sans-serif",
-                    color: "#111",
+                    fontSize: "1.3rem",
+                    color: "#7b2ff2",
                   }}
                 >
                   {card.title}
-                </div>
-                <div
-                  className="text-base"
+                </h3>
+                <p
                   style={{
                     fontFamily: "'CO Text', Arial, sans-serif",
-                    color: "#222",
+                    fontSize: "15px",
+                    lineHeight: 1.5,
+                    color: "#444",
                   }}
                 >
                   {card.desc}
-                </div>
+                </p>
               </div>
             </motion.div>
           ))}
         </div>
       </div>
+
+      {/* Wave top - transition blanc arrondi vers le haut */}
+      <div className="w-full h-20 bg-white rounded-b-[60px] relative z-10" style={{ marginBottom: -40 }} />
+
       {/* Bas violet arrondi + citation */}
-      <div className="w-full bg-[#7b2ff2] rounded-t-[60px] pt-16 pb-12 mt-12 flex flex-col items-center justify-center">
-        <div className="text-4xl text-white mb-6">❝❞</div>
-        <div
-          className="text-center text-white font-bold max-w-3xl mx-auto"
-          style={{
-            fontFamily: "'CO HEADLINE BOLD', Arial, sans-serif",
-            fontSize: "1.6rem",
-            lineHeight: 1.3,
-          }}
-        >
-          On ne se contente pas <span style={{ fontWeight: 700 }}>de paramétrer AVEVA.</span><br />
-          On livre des outils qui vous font <span style={{ fontWeight: 700 }}>gagner du temps, fiabilisent vos données et&nbsp;améliorent la vie de vos équipes</span> au quotidien.
+      <div className="w-full bg-[#7b2ff2] pt-16 pb-12 flex flex-col items-center justify-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="flex justify-center mb-6">
+            <img
+              src={guillements}
+              alt="Guillemets"
+              className="w-12 h-12 sm:w-16 sm:h-16 object-contain"
+            />
+          </div>
+          <div
+            className="text-center text-white font-bold max-w-4xl mx-auto"
+            style={{
+              fontFamily: "'CO HEADLINE BOLD', Arial, sans-serif",
+              fontSize: "clamp(1.2rem, 3vw, 1.6rem)",
+              lineHeight: 1.3,
+            }}
+          >
+            On ne se contente pas <span style={{ fontWeight: 700 }}>de paramétrer AVEVA.</span><br />
+            On livre des outils qui vous font <span style={{ fontWeight: 700 }}>gagner du temps, fiabilisent vos données et&nbsp;améliorent la vie de vos équipes</span> au quotidien.
+          </div>
         </div>
       </div>
     </section>

@@ -35,7 +35,6 @@ const HeadBureau: React.FC = () => {
           style={{
             fontFamily: "'CO HEADLINE LIGHT', Arial, sans-serif",
             fontWeight: 300,
-            fontSize: '4.5rem',
             lineHeight: 1.1,
           }}
         >
@@ -43,7 +42,7 @@ const HeadBureau: React.FC = () => {
             style={{
               fontFamily: "'CO HEADLINE LIGHT'",
               fontWeight: 300,
-              fontSize: '4.5rem',
+              fontSize: 'clamp(4rem, 12vw, 9rem)',
               lineHeight: 1.00,
               display: 'block',
             }}
@@ -54,7 +53,7 @@ const HeadBureau: React.FC = () => {
             style={{
               fontFamily: "'CO HEADLINE BOLD'",
               fontWeight: 700,
-              fontSize: '4.5rem',
+              fontSize: 'clamp(4rem, 12vw, 9rem)',
               lineHeight: 1.00,
               display: 'block',
             }}
@@ -78,7 +77,7 @@ const HeadBureau: React.FC = () => {
           <p
             style={{
               fontWeight: 700,
-              fontSize: 16,
+              fontSize: "clamp(16px, 2.5vw, 18px)",
               color: "#fff",
               fontFamily: "'CO Text Bold', Arial, sans-serif",
               marginBottom: 16,
@@ -90,7 +89,7 @@ const HeadBureau: React.FC = () => {
           <p
             style={{
               fontWeight: 400,
-              fontSize: 15,
+              fontSize: "clamp(15px, 2.2vw, 17px)",
               color: "#fff",
               fontFamily: "'CO Text', Arial, sans-serif",
               lineHeight: 1.6,
@@ -104,7 +103,7 @@ const HeadBureau: React.FC = () => {
             className="border border-white text-white font-bold rounded-full px-8 py-3 transition hover:bg-white hover:text-[#7b2ff2]"
             style={{
               fontFamily: "'CO Text Bold', Arial, sans-serif",
-              fontSize: 16,
+              fontSize: "clamp(14px, 2vw, 16px)",
               background: "transparent",
               cursor: "pointer",
               border: "2px solid #fff",
