@@ -18,14 +18,26 @@ const HeadExpert: React.FC = () => {
   const y = useTransform(scrollY, [0, 300], [0, -40]);
 
   return (
-    <section
-      id="expert"
-      ref={containerRef}
-      className="min-h-screen flex flex-col lg:flex-row items-center justify-between relative overflow-hidden px-4 sm:px-6 md:px-8 lg:px-0"
-      style={{
-        background: `url(${degradeGrain}) center center / cover no-repeat`,
-      }}
-    >
+    <div className="relative">
+      {/* Partie blanche au-dessus avec bords arrondis */}
+      <div 
+        className="w-full h-28 bg-white"
+        style={{
+          borderBottomLeftRadius: "60px",
+          borderBottomRightRadius: "60px",
+        }}
+      ></div>
+      
+      <section
+        id="expert"
+        ref={containerRef}
+        className="min-h-screen flex flex-col lg:flex-row items-center justify-between relative overflow-hidden px-4 sm:px-6 md:px-8 lg:px-0"
+        style={{
+          background: `url(${degradeGrain}) center center / cover no-repeat`,
+          borderTopLeftRadius: "60px",
+          borderTopRightRadius: "60px",
+        }}
+      >
       <motion.div
         className="z-10 lg:pl-10 xl:pl-20 flex-1 flex items-center w-full lg:w-auto mb-8 lg:mb-0"
         style={{ opacity, y }}
@@ -141,6 +153,7 @@ const HeadExpert: React.FC = () => {
         </div>
       </motion.div>
     </section>
+    </div>
   );
 };
 

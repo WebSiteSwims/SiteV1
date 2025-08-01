@@ -50,7 +50,7 @@ const NosPlus: React.FC = () => {
         <div className="flex items-center mb-8 md:mb-12">
           <img src={fuseeImg} alt="" className="w-6 h-6 md:w-7 md:h-7 object-contain mr-2" />
           <span
-            className="text-lg md:text-xl font-bold text-zinc-800"
+            className="font-bold text-2xl sm:text-3xl md:text-4xl"
             style={{
               fontFamily: "'CO HEADLINE BOLD', Arial, sans-serif",
             }}

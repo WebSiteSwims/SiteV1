@@ -5,12 +5,24 @@ import fuseeHome from '../images/FUSEE-Home.png';
 
 const HeadNous: React.FC = () => {
   return (
-    <section
-      className="min-h-screen flex items-start justify-start relative overflow-hidden"
-      style={{
-        background: `url(${degradeGrain}) center center / cover no-repeat`,
-      }}
-    >
+    <div className="relative">
+      {/* Partie blanche au-dessus avec bords arrondis */}
+      <div 
+        className="w-full h-28 bg-white"
+        style={{
+          borderBottomLeftRadius: "60px",
+          borderBottomRightRadius: "60px",
+        }}
+      ></div>
+      
+      <section
+        className="min-h-screen flex items-start justify-start relative overflow-hidden"
+        style={{
+          background: `url(${degradeGrain}) center center / cover no-repeat`,
+          borderTopLeftRadius: "60px",
+          borderTopRightRadius: "60px",
+        }}
+      >
       {/* Texte principal */}
       <div className="z-10 pt-16 pl-10 md:pt-32 md:pl-20">
       <h1
@@ -87,6 +99,7 @@ const HeadNous: React.FC = () => {
       draggable={false}
     />
   </section>
+  </div>
   );
 };
 

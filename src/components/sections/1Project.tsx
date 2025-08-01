@@ -6,21 +6,6 @@ const Project: React.FC = () => {
     <section className="w-full py-16 md:py-20 lg:py-24 bg-[#f5f5f5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Titre standardisé en haut à gauche */}
-        <div className="flex items-center mb-8 md:mb-12">
-          <img
-            src={fuseeImg}
-            alt="Fusée"
-            className="w-6 h-6 md:w-7 md:h-7 object-contain mr-2"
-          />
-          <span
-            className="text-lg md:text-xl font-bold text-zinc-800"
-            style={{
-              fontFamily: "'CO HEADLINE BOLD', Arial, sans-serif",
-            }}
-          >
-            Un projet ?
-          </span>
-        </div>
 
         {/* Contenu centré */}
         <div className="flex flex-col items-center text-center">

@@ -57,7 +57,7 @@ const FAQSection: React.FC = () => {
             className="w-6 h-6 md:w-7 md:h-7 object-contain mr-2"
           />
           <span
-            className="text-lg md:text-xl font-bold text-white"
+            className="font-bold text-2xl sm:text-3xl md:text-4xl text-white"
             style={{
               fontFamily: "'CO HEADLINE BOLD', Arial, sans-serif",
             }}
